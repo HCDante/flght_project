@@ -3,10 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BookingFormComponent } from './components/booking-form/booking-form/booking-form.component';
+import { HeaderComponent } from './components/booking-form/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { DataFormComponent } from './components/data-form/data-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BookingFormComponent,
+    HeaderComponent,
+    FooterComponent,
+    DataFormComponent
   ],
   imports: [
     BrowserModule,
