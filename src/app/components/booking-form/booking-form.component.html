@@ -1,1 +1,110 @@
-<p>booking-form works!</p>
+<!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>> Inicia Page1 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+<p>{{model | json}}</p>
+<div class="container section-center">
+    <div class="row">
+        <div class="col-md-4 col-md-push-7" id="formContainer">
+            <div class="booking-form">
+                <!-- directiva ngform -->
+                <form (ngSubmit)="onSubmit()" #searchF="ngForm">
+                    <div class="form-group">
+                        <span class="form-label">Departure place</span>
+                        <input class="form-control" type="text" id="departure" placeholder="Enter a departure place"
+                            name="departure" #departure="ngModel" [(ngModel)]="model.departure" required>
+                        <div class="alert alert-danger" [hidden]="departure.valid || departure.pristine">
+                            Este campo es obligatorio</div>
+                    </div>
+                    <div class="form-group">
+                        <span class="form-label">Your Destination</span>
+                        <input class="form-control" type="text" id="destination" placeholder="Enter a destination"
+                            name="destination" #destination="ngModel" [(ngModel)]="model.destination" required>
+                        <div class="alert alert-danger" [hidden]="destination.valid || destination.pristine">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
+                    <div id="departure-suggestions"></div>
+                    <div id="destination-suggestions"></div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="form-label">Check In</span>
+                                <input class="form-control" type="date" name="checkIn" #checkIn="ngModel"
+                                    [(ngModel)]="model.checkIn" required>
+                                <div class="alert alert-danger" [hidden]="checkIn.valid || checkIn.pristine">
+                                    Este campo es obligatorio
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="form-label">Check out</span>
+                                <input class="form-control" type="date" name="checkOut" #checkOut="ngModel"
+                                    [(ngModel)]="model.checkOut" required>
+                                <div class="alert alert-danger" [hidden]="checkOut.valid || checkOut.pristine">
+                                    Estecampo es obligatorio
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <span class="form-label">Baggage</span>
+                                <select class="form-control" name="baggage" #baggage="ngModel"
+                                    [(ngModel)]="model.baggage" required>
+                                    <option>1 Kg</option>
+                                    <option>5 Kg </option>
+                                    <option>+5 Kg</option>
+                                </select>
+                                <div class="alert alert-danger" [hidden]="baggage.valid || baggage.pristine">
+                                    Este campo es obligatorio
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <span class="form-label">Adults</span>
+                                <select class="form-control" name="adults" #adults="ngModel" [(ngModel)]="model.adults"
+                                    required>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                                <div class="alert alert-danger" [hidden]="adults.valid || adults.pristine">
+                                    Este campo esobligatorio
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <span class="form-label">Children</span>
+                                <select class="form-control" name="children" #children="ngModel"
+                                    [(ngModel)]="model.children" required>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                                <!-- <span class="select-arrow"></span> -->
+                                <div class="alert alert-danger" [hidden]="children.valid || children.pristine">
+                                    Estecampo es obligatorio
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-btn">
+                        <button class="submit-btn btn btn-primary" [disabled]="searchF.invalid">Check availability</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-7 col-md-pull-4 d-flex justify-content-center">
+            <div class="booking-cta" id="bookingText">
+                <h1>Make your reservation</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>> Termina Page1 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
